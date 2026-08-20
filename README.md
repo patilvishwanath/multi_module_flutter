@@ -23,3 +23,7 @@ A new Flutter project.
 6. open ~/.zshrc
 7. export PATH="$JAVA_HOME/bin:$PATH:$HOME/.pub-cache/bin" //copy & paste it in ~/.zshrc
 
+========================
+to generate injection.config.dart
+1. dart run build_runner watch --delete-conflicting-outputs
+
