@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
+import 'package:app_settings/provider/app_settings_provider.dart';
+import 'di/injectors.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies(Environment.dev);
   runApp(const MyApp());
 }
 
@@ -55,6 +60,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final appSettingsProvider = getIt<AppSettingsProvider>();
 
   void _incrementCounter() {
     setState(() {
@@ -69,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -104,9 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            Text('You have pushed the button this many times: ${appSettingsProvider.getAppLanguage()}'),
             Text(
-              '$_counter',
+              '$_counter + ${appSettingsProvider.getEnvironment()}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
