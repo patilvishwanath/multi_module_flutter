@@ -35,6 +35,8 @@ workspace:
 dependencies:
   app_settings:
     path: features/settings/app_settings
+  datastore:
+    path: core/datastore
   flutter:
     sdk: flutter
   get_it: ^9.2.1

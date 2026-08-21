@@ -1,6 +1,7 @@
+import 'package:datastore/datastore.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:app_settings/provider/app_settings_provider.dart';
 import 'di/injectors.dart';
 
 void main() {
@@ -61,6 +62,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   final appSettingsProvider = getIt<AppSettingsProvider>();
+  final appSessionProvider = getIt<SessionProvider>();
+
 
   void _incrementCounter() {
     setState(() {
@@ -111,9 +114,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('You have pushed the button this many times: ${appSettingsProvider.getAppLanguage()}'),
+            Text('You have pushed the button this many times: ${appSettingsProvider.getAppLanguage()} : ${appSessionProvider.getAccessToken()}'),
             Text(
-              '$_counter + ${appSettingsProvider.getEnvironment()}',
+              '$_counter + ${appSettingsProvider.getEnvironment()} + ${appSessionProvider.getUserId()}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
