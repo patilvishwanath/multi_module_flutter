@@ -1,37 +1,22 @@
-name: login
+name: extensions
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: ">=3.12.2 <4.0.0"
+  sdk: ^3.12.2
   flutter: ">=3.44.8"
 
 resolution: workspace
 
 dependencies:
-  datastore:
-    path: ../../../core/datastore
-  domain:
-    path: ../../../core/domain
-  data:
-    path: ../../../core/data
-  extensions:
-    path: ../../../core/extensions
   flutter:
     sdk: flutter
-  retrofit: ^4.10.0
-  dio: ^5.11.0
-  json_annotation: ^4.12.0
-  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  retrofit_generator: ^10.2.9
-  build_runner: ^2.15.1
-  json_serializable: ^6.14.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

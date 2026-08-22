@@ -1,4 +1,4 @@
-library datastore;
+library;
 
 export 'di/injectors.dart';
 export 'provider/session_provider.dart';
