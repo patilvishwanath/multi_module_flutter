@@ -9,7 +9,7 @@ export 'package:login/data/mapper/login_mapper.dart';
 
 
 
-export 'package:login/domain/login_repository.dart';
+export 'package:login/domain/repository/login_repository.dart';
 export 'package:login/domain/model/login_model.dart';
 
 

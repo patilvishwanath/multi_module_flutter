@@ -5,12 +5,13 @@ import 'package:login/login.dart';
 
 class LoginRemoteServiceImpl implements LoginRemoteService {
   final LoginService loginService;
+  final NetworkInfo info;
 
-  LoginRemoteServiceImpl(this.loginService);
+  LoginRemoteServiceImpl(this.loginService,this.info);
 
   @override
   Future<Either<Failure, LoginResponse>> login(LoginRequest loginRequest) {
-    return safeApiCall(() async {
+    return safeApiCall(info,() async {
       final response = await loginService.login(
         loginRequest.email,
         loginRequest.password,

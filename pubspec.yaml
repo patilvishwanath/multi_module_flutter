@@ -78,6 +78,7 @@ melos:
         pretty_dio_logger: ^1.4.0
         retrofit: ^4.10.0
         dartz: ^0.10.1
+        connectivity_plus: ^7.3.1
 
       dev_dependencies:
         injectable_generator: ^3.1.3
