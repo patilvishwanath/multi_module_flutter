@@ -2,8 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:domain/domain.dart';
 import 'package:login/login.dart';
 
-class LoginUseCase implements BaseUseCase<LoginRequest,LoginModel>{
-
+class LoginUseCase implements BaseUseCase<LoginRequest, LoginModel> {
   final LoginRepository loginRepository;
 
   LoginUseCase(this.loginRepository);

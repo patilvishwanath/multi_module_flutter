@@ -1,4 +1,4 @@
-library ;
+library;
 
 export 'package:extensions/constant/constant.dart';
 

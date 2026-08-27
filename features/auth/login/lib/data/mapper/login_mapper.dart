@@ -4,8 +4,10 @@ import 'package:login/domain/model/login_model.dart';
 
 extension LoginResponseMapper on LoginResponse? {
   LoginModel toDomain() {
-    return LoginModel(name:this?.name.orEmpty() ?? Constant.empty,
-        phone:this?.phone.orEmpty() ?? Constant.empty ,
-        age: this?.age.orZero() ?? Constant.zero);
+    return LoginModel(
+      name: this?.name.orEmpty() ?? Constant.empty,
+      phone: this?.phone.orEmpty() ?? Constant.empty,
+      age: this?.age.orZero() ?? Constant.zero,
+    );
   }
 }

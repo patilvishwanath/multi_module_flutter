@@ -1,8 +1,6 @@
-import 'localized_message.dart';
-
-class Failure{
+class Failure {
   int code;
-  LocalizedMessage message;
+  String message;
 
   Failure(this.code, this.message);
 }

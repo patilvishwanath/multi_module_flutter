@@ -11,9 +11,9 @@ Future<Either<Failure, T>> safeApiCall<T>(
       final response = await call();
       return Right(response);
     } catch (error) {
-      return Left(Failure(0, LocalizedMessage("Something went wrong", "")));
+      return Left(ErrorHandler.handle(error).failure);
     }
   } else {
-    return Left(Failure(-1, LocalizedMessage("No internet connection. Please try again.", "")));
+    return Left(DataSource.noInternetConnection.getFailure());
   }
 }

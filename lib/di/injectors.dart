@@ -1,6 +1,7 @@
 
-import 'package:app_settings/di/injectors.dart';
-import 'package:datastore/di/injectors.dart';
+import 'package:app_settings/app_settings.dart';
+import 'package:data/data.dart';
+import 'package:datastore/datastore.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:multi_module_flutter/di/injectors.config.dart';
@@ -8,8 +9,12 @@ import 'package:multi_module_flutter/di/injectors.config.dart';
 final getIt = GetIt.instance;
 
 @InjectableInit()
-void configureDependencies(String environment){
+Future<void> configureDependencies(String environment) async {
+
+  await configureAppSettingsDependencies(getIt,environment);
+  await configureDataStoreDependencies(getIt,environment);
+  await configureDataDependencies(getIt,environment);
+
   getIt.init(environment: environment);
-  configureAppSettingsDependencies(getIt,environment);
-  configureDataStoreDependencies(getIt,environment);
+
 }

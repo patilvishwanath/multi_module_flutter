@@ -37,6 +37,8 @@ dependencies:
     path: features/settings/app_settings
   datastore:
     path: core/datastore
+  data:
+    path: core/data
   flutter:
     sdk: flutter
   get_it: ^9.2.1
@@ -71,6 +73,7 @@ melos:
   command:
     bootstrap:
       dependencies:
+        uuid: ^4.5.1
         dio: ^5.11.0
         get_it: ^9.2.1
         injectable: ^3.0.0
@@ -79,6 +82,7 @@ melos:
         retrofit: ^4.10.0
         dartz: ^0.10.1
         connectivity_plus: ^7.3.1
+        shared_preferences: ^2.5.5
 
       dev_dependencies:
         injectable_generator: ^3.1.3
