@@ -33,6 +33,8 @@ workspace:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  login:
+    path: features/auth/login
   app_settings:
     path: features/settings/app_settings
   datastore:

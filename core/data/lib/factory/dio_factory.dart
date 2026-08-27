@@ -16,7 +16,7 @@ class DioFactory {
     required this.language,
   });
 
-  Future<Dio> getDio() async {
+  Dio getDio()  {
     Dio dio = Dio();
 
     Map<String, String> headers = {
@@ -24,7 +24,7 @@ class DioFactory {
       accept: applicationJson,
       authorization: accessToken,
       defaultLanguage: language,
-      clientId: "client_id",
+      clientId: clientId,
     };
 
     dio.options = BaseOptions(

@@ -1,11 +1,11 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:data/network/network_info.dart';
 
-class NetworkInfoImpl extends NetworkInfo {
+class NetworkInfoImpl implements NetworkInfo {
   @override
   Future<bool> get isConnected async {
     final connectivityResult = await (Connectivity().checkConnectivity());
-    return connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi;
+    return connectivityResult.contains(ConnectivityResult.mobile) ||
+        connectivityResult.contains(ConnectivityResult.wifi);
   }
 }
