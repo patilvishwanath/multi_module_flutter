@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:login/data/di/injectors.config.dart';
+import 'package:login/di/injectors.config.dart';
 
 @InjectableInit()
 Future<void> configureLoginDependencies(

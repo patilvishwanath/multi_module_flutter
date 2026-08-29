@@ -1,4 +1,3 @@
-
 import 'package:app_settings/app_settings.dart';
 import 'package:data/data.dart';
 import 'package:datastore/datastore.dart';
@@ -11,12 +10,10 @@ final getIt = GetIt.instance;
 
 @InjectableInit()
 Future<void> configureDependencies(String environment) async {
-
-  await configureAppSettingsDependencies(getIt,environment);
-  await configureDataStoreDependencies(getIt,environment);
-  await configureDataDependencies(getIt,environment);
-  await configureLoginDependencies(getIt,environment);
+  await configureAppSettingsDependencies(getIt, environment);
+  await configureDataStoreDependencies(getIt, environment);
+  await configureDataDependencies(getIt, environment);
+  await configureLoginDependencies(getIt, environment);
 
   getIt.init(environment: environment);
-
 }

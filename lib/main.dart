@@ -2,16 +2,19 @@ import 'package:datastore/datastore.dart';
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:login/presentation/login_bloc.dart';
+import 'package:login/presentation/login_screen.dart';
 import 'di/injectors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies(Environment.prod);
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final loginBloc = getIt<LoginBloc>();
 
   // This widget is the root of your application.
   @override
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(loginBloc: loginBloc),
     );
   }
 }
@@ -64,7 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final appSettingsProvider = getIt<AppSettingsProvider>();
   final appSessionProvider = getIt<SessionProvider>();
 
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -78,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -114,7 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('You have pushed the button this many times: ${appSettingsProvider.getAppLanguage()} : ${appSessionProvider.getAccessToken()}'),
+            Text(
+              'You have pushed the button this many times: ${appSettingsProvider.getAppLanguage()} : ${appSessionProvider.getAccessToken()}',
+            ),
             Text(
               '$_counter + ${appSettingsProvider.getEnvironment()} + ${appSessionProvider.getUserId()}',
               style: Theme.of(context).textTheme.headlineMedium,

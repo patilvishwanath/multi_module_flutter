@@ -28,7 +28,9 @@ class LoginInitial extends LoginState {}
 class LoginLoading extends LoginState {}
 
 class LoginInValid extends LoginState {
+  @override
   final String? userNameError;
+  @override
   final String? passwordError;
 
   const LoginInValid({this.userNameError, this.passwordError})

@@ -1,4 +1,4 @@
-import 'package:data/constants/constants.dart';
+import 'package:data/constants/constants.dart' as constants;
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -16,15 +16,15 @@ class DioFactory {
     required this.language,
   });
 
-  Dio getDio()  {
+  Dio getDio() {
     Dio dio = Dio();
 
     Map<String, String> headers = {
-      contentType: applicationJson,
-      accept: applicationJson,
-      authorization: accessToken,
-      defaultLanguage: language,
-      clientId: clientId,
+      constants.contentType: constants.applicationJson,
+      constants.accept: constants.applicationJson,
+      constants.authorization: accessToken,
+      constants.defaultLanguage: language,
+      constants.clientId: clientId,
     };
 
     dio.options = BaseOptions(
@@ -44,7 +44,6 @@ class DioFactory {
         ),
       );
     }
-
     return dio;
   }
 }

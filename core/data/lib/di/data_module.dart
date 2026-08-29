@@ -3,6 +3,7 @@ import 'package:datastore/datastore.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+@module
 abstract class DataModule {
   @Named(DataModuleKeys.baseUrl)
   String provideBaseUrl(PreferencesProvider preferencesProvider) =>

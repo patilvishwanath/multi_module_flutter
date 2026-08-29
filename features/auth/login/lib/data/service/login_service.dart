@@ -9,11 +9,7 @@ const String baseUrl = "https://minafarid.mocklab.io";
 
 @RestApi(baseUrl: baseUrl)
 abstract class LoginService {
-  factory LoginService(
-    Dio dio, {
-    String baseUrl,
-    ParseErrorLogger? errorLogger,
-  }) = _LoginService;
+  factory LoginService(Dio dio) = _LoginService;
 
   @POST("/login")
   Future<HttpResponse<LoginResponse>> login(

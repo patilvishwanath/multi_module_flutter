@@ -6,6 +6,6 @@ class PreferencesString {
   static const String spanishLanguage = 'es';
   static const String arabicLanguage = 'ar';
 
-  static const String devBaseUrl = 'devBaseUrl';
+  static const String devBaseUrl = 'https://dev-api.example.com';
   static const String prodBaseUrl = 'prodBaseUrl';
 }
