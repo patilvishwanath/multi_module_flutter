@@ -18,6 +18,7 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 const String _prod = 'prod';
 const String _dev = 'dev';
+const String _qa = 'qa';
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -38,6 +39,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i659.SessionProvider>(
       () => _i469.DevSessionProviderImpl(gh<_i460.SharedPreferences>()),
       registerFor: {_dev},
+    );
+    gh.factory<_i659.SessionProvider>(
+      () => _i469.QaSessionProviderImpl(gh<_i460.SharedPreferences>()),
+      registerFor: {_qa},
     );
     gh.lazySingleton<_i659.PreferencesProvider>(
       () => dataStoreModule.preferencesProviderImpl(
