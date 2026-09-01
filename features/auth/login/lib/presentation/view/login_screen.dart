@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/presentation/login_bloc.dart';
-import 'package:login/presentation/login_event.dart';
-import 'package:login/presentation/login_state.dart';
+import 'package:login/presentation/bloc/login_bloc.dart';
+
+import '../bloc/login_event.dart';
+import '../bloc/login_state.dart';
+
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key, required this.loginBloc});

@@ -1,15 +1,18 @@
+import 'package:data/data.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../response/login_response.dart';
 
 part 'login_service.g.dart';
 
-const String baseUrl = "https://minafarid.mocklab.io";
-
-@RestApi(baseUrl: baseUrl)
+@LazySingleton()
+@RestApi()
 abstract class LoginService {
-  factory LoginService(Dio dio) = _LoginService;
+  @factoryMethod
+  factory LoginService(Dio dio, AppEnvConfig appEnvConfig) =>
+      _LoginService(dio, baseUrl: appEnvConfig.loginBaseUrl);
 
   @POST("/login")
   Future<HttpResponse<LoginResponse>> login(

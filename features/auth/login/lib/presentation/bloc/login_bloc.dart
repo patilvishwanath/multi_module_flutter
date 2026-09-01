@@ -2,10 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../data/request/login_request.dart';
-import '../domain/usecase/login_usecase.dart';
+import '../../data/request/login_request.dart';
+import '../../domain/usecase/login_usecase.dart';
+
 import 'login_event.dart';
 import 'login_state.dart';
+
 
 @Injectable()
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
@@ -50,7 +52,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
         emit(LoginLoading());
 
-        final request = LoginRequest("test@123.gmail.com", "test@123");
+        final request = LoginRequest(event.userName, event.password);
 
         final result = await loginUseCase.execute(request);
         result.fold(

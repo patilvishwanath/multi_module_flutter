@@ -1,0 +1,31 @@
+ide: "idea"
+flavors:
+  dev:
+    app:
+      name: "My App Dev"
+
+    android:
+      applicationId: "com.vp.myapp.dev"
+
+    ios:
+      bundleId: "com.vp.myapp.dev"
+
+  qa:
+    app:
+      name: "My App QA"
+
+    android:
+      applicationId: "com.vp.myapp.qa"
+
+    ios:
+      bundleId: "com.vp.myapp.qa"
+
+  prod:
+    app:
+      name: "My App"
+
+    android:
+      applicationId: "com.vp.myapp"
+
+    ios:
+      bundleId: "com.vp.myapp"

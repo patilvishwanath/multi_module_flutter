@@ -1,7 +1,7 @@
 library;
 
-export 'provider/app_settings_provider.dart';
-export 'di/injectors.dart';
+export 'package:app_settings/provider/app_settings_provider.dart';
+export 'package:app_settings/di/injectors.dart';
 
 /// A Calculator.
 class Calculator {

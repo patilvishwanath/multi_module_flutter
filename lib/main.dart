@@ -1,14 +1,26 @@
+import 'dart:async';
+
+import 'package:data/data.dart';
 import 'package:datastore/datastore.dart';
-import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
-import 'package:login/presentation/login_bloc.dart';
-import 'package:login/presentation/login_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:login/login.dart';
+
 import 'di/injectors.dart';
+import 'config/flavors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureDependencies(Environment.prod);
+
+  F.appFlavor = Flavor.values.firstWhere(
+    (element) => element.name == appFlavor,
+  );
+
+  await dotenv.load(fileName: 'env/.env.${F.name}');
+
+  await configureDependencies(F.name);
+
   runApp(MyApp());
 }
 
@@ -64,7 +76,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  final appSettingsProvider = getIt<AppSettingsProvider>();
+  final appSettingsProvider = getIt<AppEnvConfig>();
   final appSessionProvider = getIt<SessionProvider>();
 
   void _incrementCounter() {
@@ -116,10 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times: ${appSettingsProvider.getAppLanguage()} : ${appSessionProvider.getAccessToken()}',
+              'You have pushed the button this many times: ${appSettingsProvider.defaultLanguage} : ${appSessionProvider.getAccessToken()}',
             ),
             Text(
-              '$_counter + ${appSettingsProvider.getEnvironment()} + ${appSessionProvider.getUserId()}',
+              '$_counter + ${appSettingsProvider.defaultLanguage} + ${appSessionProvider.getUserId()} + ${appSettingsProvider.environment} + ${appSettingsProvider.baseUrl}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],

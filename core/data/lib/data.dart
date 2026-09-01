@@ -17,6 +17,8 @@ export 'package:data/error_handler/dio_error_handler.dart';
 export 'package:data/di/data_module.dart';
 export 'package:data/di/data_module_keys.dart';
 export 'package:data/di/injectors.dart';
+
+export 'package:data/env/app_env_config.dart';
 //export 'package:data/di/get_it.dart';
 
 // A Calculator.
